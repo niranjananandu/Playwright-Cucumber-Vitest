@@ -31,7 +31,14 @@ jobs:
           ENV: staging
           BROWSER: chrome
         run: npm test
-        continue-on-error: true
+
+      - name: Debug JSON output
+        if: always()
+        run: |
+          echo "=== reports folder ==="
+          ls -la reports || true
+          echo "=== json files ==="
+          find reports -type f -name "*.json" -print -exec head -n 5 {} \; || true
 
       - name: Generate reports
         run: npx ts-node src/helper/report.ts
@@ -40,9 +47,9 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: cucumber-reports
-          retention-days: 2
-          path: |
-            reports/
-            screenshots/
-            logs/
+            name: cucumber-reports
+            retention-days: 2
+            path: |
+                  reports/
+                  screenshots/
+                  logs/
