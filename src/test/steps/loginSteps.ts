@@ -13,7 +13,7 @@ When('the user logs in with valid credentials', async function () {
 });
 
 Then('the user should be logged in successfully', async function () {
-    expect(await this.pageManager!.loginPage.isLoggedIn()).toBeFalsy();
+    expect(await this.pageManager!.loginPage.isLoggedIn()).toBeTruthy();
 
 });
 
