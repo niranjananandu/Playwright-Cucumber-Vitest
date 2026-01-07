@@ -5,6 +5,7 @@ import { getEnv } from "../helper/env";
 import { CustomWorld } from "../support/world";
 import { buildScenarioLogger } from "../helper/logger";
 import fs from "fs";
+import { PageManager } from "../test/pages/pageManager";
 
 let browser: Browser;
 
@@ -26,6 +27,7 @@ Before(async function (this: CustomWorld, scenario) {
         recordVideo: { dir: 'reports/videos/' }
     });
     this.page = await this.context.newPage();
+    this.pageManager = new PageManager(this.page);
 
 });
 

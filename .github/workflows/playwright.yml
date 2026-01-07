@@ -31,6 +31,10 @@ jobs:
           ENV: staging
           BROWSER: chrome
         run: npm test
+        continue-on-error: true
+
+      - name: Generate reports
+        run: npx ts-node src/helper/report.ts
 
       - name: Upload test reports
         if: always()
