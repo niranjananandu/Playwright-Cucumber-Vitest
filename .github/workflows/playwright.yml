@@ -41,6 +41,7 @@ jobs:
           find reports -type f -name "*.json" -print -exec head -n 5 {} \; || true
 
       - name: Generate reports
+        if: always()
         run: npx ts-node src/helper/report.ts
 
       - name: Upload test reports
