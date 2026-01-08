@@ -4,7 +4,7 @@ export const invokeBrowser = () =>{
     const browserType = process.env.BROWSER || 'chromium';
     switch(browserType.toLowerCase()){
         case 'chrome':
-            return chromium.launch({ headless: true });
+            return chromium.launch({ headless: false });
         case 'chromium':
             return chromium.launch({ headless: true });
         case 'firefox':
