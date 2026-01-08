@@ -8,7 +8,7 @@ Given('the user is on the login page', async function (this: CustomWorld) {
 });
 
 When('the user logs in with valid credentials', async function () {
-    await this.pageManager!.loginPage.login('tester123!', 'Tester123!');
+    await this.pageManager!.loginPage.login(process.env.USERNAME,  process.env.PASSWORD);
 
 });
 
