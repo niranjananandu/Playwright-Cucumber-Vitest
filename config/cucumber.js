@@ -1,52 +1,52 @@
-{
-    "default": {
-        "tags": "@regression",
-        "formatOptions": {
-            "snippetInterface": "async-await"
+module.exports = {
+   default: {
+        tags: process.env.npm_config_TAGS || "",
+        formatOptions: {
+            snippetInterface: "async-await"
         },
-        "paths": [
-            "src/test/features/**/login.feature"
+        paths: [
+            "src/test/features/**/*.feature"
         ],
-        "require": [
+        require: [
             "src/hooks/**/*.ts",
             "src/test/steps/**/*.ts",
             "src/test/support/**/*.ts"
         ],
-        "requireModule": [
+        requireModule: [
             "ts-node/register"
         ],
-        "format": [
+        format: [
             "progress-bar",
             "html:reports/cucumber-report.html",
             "json:reports/cucumber-report.json",
             "rerun:@reports/rerun.txt"
         ],
-        "publishQuiet": true,
-        "dryRun": false,
-        "parallel": 1
+        publishQuiet: true,
+        dryRun: false,
+        parallel: 1
     },
     
-    "rerun": {
-        "formatOptions": {
-            "snippetInterface": "async-await"
+    rerun: {
+        formatOptions: {
+            snippetInterface: "async-await"
         },
 
-        "require": [
+        require: [
             "src/hooks/**/*.ts",
             "src/test/steps/**/*.ts",
             "src/test/support/**/*.ts"
         ],
-        "requireModule": [
+        requireModule: [
             "ts-node/register"
         ],
-        "format": [
+        format: [
             "progress-bar",
             "html:reports/cucumber-report.html",
             "json:reports/cucumber-report.json",
             "rerun:@reports/rerun.txt"
         ],
-        "publishQuiet": true,
-        "dryRun": false,
-        "parallel": 2
+        publishQuiet: true,
+        dryRun: false,
+        parallel: 2
     }
-}
+};

@@ -5,7 +5,7 @@ Feature: User authentication
 
   Background:
     Given the user is on the login page
-
+  @regression
   Scenario: Successful login with valid credentials
     When the user logs in with valid credentials
     Then the user should be logged in successfully
